@@ -11,7 +11,7 @@ import "@chainlink/src/v0.8/automation/AutomationCompatible.sol";
 //     uint256 automationByLogTime;
 //     bool functionStatus;
 //     uint256 functionTime;
-contract Step1_Automation is AutomationCompatibleInterface {
+contract Step1_AutomationByTime is AutomationCompatibleInterface {
     address private _owner;
     uint256 private _startAutomationTime;
     Counters.Counter private _lastID;
