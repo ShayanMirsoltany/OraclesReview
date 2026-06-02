@@ -2,4 +2,8 @@ pragma solidity ^0.8.24;
 import "../shared/errors/Step1_Automation_errors.sol";
 import "@openzeppelin/utils/Counters.sol";
 import "@chainlink/src/v0.8/automation/AutomationCompatible.sol";
-contract Step4_AutomationByLog is AutomationCompatibleInterface {}
+contract Step4_AutomationByLog is AutomationCompatibleInterface {
+    function checkUpkeep(bytes calldata checkData) external returns (bool upkeepNeeded, bytes memory performData) {}
+
+    function performUpkeep(bytes calldata performData) external {}
+}
