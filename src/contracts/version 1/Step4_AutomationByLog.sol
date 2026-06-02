@@ -1,8 +1,8 @@
 pragma solidity ^0.8.24;
-import "../shared/errors/Step1_Automation_errors.sol";
+import "../../shared/errors/Step1_Automation_errors.sol";
 import "@openzeppelin/utils/Counters.sol";
 import "@chainlink/src/v0.8/automation/AutomationCompatible.sol";
-import "../shared/_upgradableContracts.sol";
+import "../../shared/_upgradableContracts.sol";
 
 contract Step4_AutomationByLog is AutomationCompatibleInterface, UUPSUpgradeable, OwnableUpgradeable, AccessControlUpgradeable {
     constructor() {

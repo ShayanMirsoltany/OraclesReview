@@ -1,10 +1,9 @@
 pragma solidity ^0.8.24;
-import "../shared/_upgradableContracts.sol";
-contract Step5_Function is UUPSUpgradeable, OwnableUpgradeable, AccessControlUpgradeable {
+import "../../shared/_upgradableContracts.sol";
+contract Step2_PriceFeed is UUPSUpgradeable, OwnableUpgradeable, AccessControlUpgradeable {
     constructor() {
         __Ownable_init();
         __AccessControl_init();
     }
-
     function _authorizeUpgrade(address newImplementation) internal override {}
 }
