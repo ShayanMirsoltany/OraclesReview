@@ -2,13 +2,14 @@
 pragma solidity ^0.8.30;
 import "forge-std/Script.sol";
 import "@openzeppelin/proxy/ERC1967/ERC1967Proxy.sol";
+import "../src/contracts/version 1/Step1_AutomationByTime.sol";
 contract DeployStep1 is Script {
     function run() public {
         vm.startBroadcast();
-        // CLT_Token impl = new CLT_Token();
-        // bytes memory data = abi.encodeCall(CLT_Token.initialize, ("Chainlinker", "CLK", 200_000_000 ether));
-        // address proxy = address(new ERC1967Proxy(address(impl), data));
-        // console.log("Token proxy : ", proxy);
+        Step1_AutomationByTime impl = new Step1_AutomationByTime();
+        bytes memory data = abi.encodeCall(Step1_AutomationByTime.initialize, ());
+        address proxy = address(new ERC1967Proxy(address(impl), data));
+        console.log("Token proxy : ", proxy);
         vm.stopBroadcast();
     }
 }
@@ -22,3 +23,9 @@ contract DeployStep1 is Script {
 //         vm.stopBroadcast();
 //     }
 // }
+// 0xe3645FE1eA808812426e011677F297BE67C10A44
+// forge script script/Step1.s.sol --rpc-url $env:RPC_SEPOLIA --private-key $env:PRIVATE_KEY --broadcast --verify
+//Link Polygon // cast send 0x0Fd9e8d3aF1aaee056EB9e802c3A762a667b1904 "transfer(address,uint256)" 0x6d20C71725068860fD0536E3e6101b6e4C4a5598 1000000000000000000 --rpc-url $env:RPC_POLYGON --private-key $env:PRIVATE_KEY
+//Link Sepolia // cast send 0x779877A7B0D9E8603169DdbD7836e478b4624789 "transfer(address,uint256)" 0x9B2e17BFaa54E03a20e97b65E2f18810dc7E0826  2000000000000000000 --rpc-url $env:RPC_SEPOLIA --private-key $env:PRIVATE_KEY
+//cast send 0xB3e71B5B930607e3E10c5c8A591bCC6D59b93CaF "mint(address,uint256)" 0x38c30a38cbd6fd5333eb70eda32078e51e7e3009 200000000000000000000000000 --rpc-url $env:RPC_SEPOLIA --private-key $env:PRIVATE_KEY
+//cast call 0xB3e71B5B930607e3E10c5c8A591bCC6D59b93CaF "balanceOf(address)" 0x38c30a38cbd6fd5333eb70eda32078e51e7e3009 --rpc-url $env:RPC_SEPOLIA
